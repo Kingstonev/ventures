@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (id === "2150" && password === "123") {
         isLoggedIn = true;
         adminSection.style.display = "block";
-        loginBtn.textContent = "🚪 Logout";
+        loginBtn.textContent = " Logout";
         alert("✅ Logged in successfully!");
       } else {
         alert("❌ Invalid credentials.");
