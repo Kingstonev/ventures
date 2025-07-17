@@ -1,0 +1,257 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    background-color: #fff;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background: #003366;
+    color: white;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    font-size: 26px;
+    font-weight: bold;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: gold;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(to right, #000000, #1a1a1a);
+    color: white;
+    text-align: center;
+    padding: 130px 20px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.moving-text {
+    display: inline-block;
+    white-space: nowrap;
+    background: linear-gradient(90deg, #ff0000, #00ff00, #0000ff, #ff00ff, #ff0000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    animation: scrollText 10s linear infinite, colorChange 8s ease-in-out infinite;
+}
+
+@keyframes scrollText {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+@keyframes colorChange {
+    0% { filter: hue-rotate(0deg); }
+    50% { filter: hue-rotate(180deg); }
+    100% { filter: hue-rotate(360deg); }
+}
+
+.hero p {
+    font-size: 18px;
+}
+
+.hero-btns {
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.shop, .register {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+}
+
+.shop div:first-child,
+.register div:first-child {
+    height: 380px; /* or any fixed height */
+    width: 100%;
+    overflow: hidden;
+}
+
+.shop-image,
+.register-image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.shop > div:last-child,
+.register > div:last-child {
+    font-size: 25PX;
+    margin-top: 20px; /* Adjust as needed */
+}
+
+@media (max-width: 768px) {
+    .hero-btns {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+.btn {
+   
+    background: gold;
+    color: black;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 30px;
+    
+    margin-right: 10px;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: #e6b800;
+}
+
+.btn-outline {
+    border: 2px solid gold;
+    padding: 10px 22px;
+    border-radius: 30px;
+   
+    background: transparent;
+    color: gold;
+    text-decoration: none;
+    transition: background 0.3s, color 0.3s;
+}
+
+.btn-outline:hover {
+    background: gold;
+    color: black;
+}
+
+/* Section Layout */
+section {
+    padding: 70px 20px;
+    text-align: center;
+}
+
+.about {
+    background-color: #dda565;
+}
+
+.about-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.service-cards, .portfolio-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+
+.services, .portfolio {
+    background: #003366;
+    color: #f4f4f4;
+}
+.card {
+    background: white;
+    color: #000000;
+    padding: 20px;
+    border-radius: 12px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card ul {
+    list-style: disc;
+    padding-left: 20px;
+    text-align: left;
+}
+
+.testimonials {
+    margin-top: 40px;
+}
+
+.testimonials-heading {
+    margin-top: 40px;
+}
+
+.testimonials p {
+    margin-bottom: 20px;
+    background: #f4f4f4;
+    color: #000000;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+/* Footer */
+footer {
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+}

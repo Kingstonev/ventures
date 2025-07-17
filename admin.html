@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Panel</title>
+  <script type="module" src="scripts/admin.js"></script>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f6f9;
+      color: #333;
+    }
+
+    /* Header */
+    header {
+      background: #003366;
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    header nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+
+    header nav ul li a {
+      color: #fff;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    header nav ul li a.active,
+    header nav ul li a:hover {
+      border-bottom: 2px solid #fff;
+    }
+
+    /* Admin Panel Content */
+    h2 {
+      text-align: center;
+      margin-top: 30px;
+      color: #003366;
+    }
+
+    .form-container {
+      max-width: 600px;
+      margin: 30px auto;
+      padding: 20px;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+
+    .form-container input {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    #addProductBtn {
+      background: #003366;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      margin-top: 10px;
+    }
+
+    #addProductBtn:hover {
+      background: #005599;
+    }
+
+    #productList {
+      max-width: 1000px;
+      margin: 40px auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 0 20px 40px;
+    }
+
+    .product-card {
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      text-align: center;
+      padding: 15px;
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    .product-card h3 {
+      font-size: 16px;
+      margin: 10px 0 5px;
+    }
+
+    .product-card p {
+      font-size: 14px;
+      color: #555;
+    }
+    .loginb{
+      height: 55px;
+      width: 150px;
+      background-color: chartreuse;
+      font-size: 25px;
+      border:none
+      
+    }
+
+
+
+    #loginBtn {
+  background-color: #4CAF50; /* green */
+  color: white;
+  padding: 15px 20px;
+  font-size: 25px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#loginBtn:hover {
+  background-color: #022204;
+}
+
+#adminId,
+#adminPassword {
+  padding: 8px;
+  margin: 5px 0;
+  width: 300px;
+  font-size: 18px;
+}
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">Kingstone Ventures</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <h2>Admin - Manage Products</h2>
+
+  <div class="form-container">
+   <input type="text" id="adminId" placeholder="Admin ID" />
+   <input type="password" id="adminPassword" placeholder="Password" />
+   <button class="loginb" id="loginBtn">🔐 Login</button>
+
+  </div>
+ 
+
+  <div id="admin" style="display: none;">
+  <div class="form-container">
+    <input id="name" placeholder="Product Name" />
+    <input id="price" placeholder="Price in Pesewas (e.g. 8500)" />
+    <input type="file" id="imageFile" accept="image/*" />
+
+    <button id="addProductBtn">Add Product</button>
+  </div>
+
+  <div id="productList">
+    <!-- Products will be rendered here dynamically -->
+  </div>
+</div>
+  <!-- Firebase script remains the same -->
+  <script type="module">
+    import { db } from './scripts/firebase-config.js';
+    import { collection, query, where, getDocs, addDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+    const products = [
+      { name: "Men's Running Shoes", price: 12000, image: "images/p1.jpg" },
+      { name: "Women's Sneakers", price: 9500, image: "images/p2b.webp" },
+      { name: "Cocoa Butter Cream", price: 8000, image: "images/p3.webp" },
+      { name: "Casual Loafers", price: 7500, image: "images/p4.avif" },
+      { name: "Ladies’ Flats", price: 6500, image: "images/p5.jpg" },
+      { name: "Leather Boots", price: 15000, image: "images/p6.jpg" },
+      { name: "Men's Sandals", price: 4000, image: "images/p7.jpg" },
+      { name: "Kids' Sports Shoes", price: 5500, image: "images/p8.webp" },
+      { name: "Formal Dress Shoes", price: 13000, image: "images/p9.jpeg" },
+      { name: "Men’s Slippers", price: 4500, image: "images/p10.avif" },
+      { name: "Ankle Boots", price: 14000, image: "images/p11.avif" },
+      { name: "Sports Trainers", price: 10000, image: "images/p12.jpg" },
+      { name: "Women’s Heels", price: 8500, image: "images/p13.jpg" },
+      { name: "Winter Boots", price: 16000, image: "images/p14.jpg" }
+    ];
+
+    const productRef = collection(db, "products");
+
+    for (const p of products) {
+      const q = query(productRef, where("name", "==", p.name));
+      const querySnapshot = await getDocs(q);
+
+      if (querySnapshot.empty) {
+        await addDoc(productRef, p);
+        console.log(`✅ Added: ${p.name}`);
+      } else {
+        console.log(`⚠️ Skipped (already exists): ${p.name}`);
+      }
+    }
+
+    // Optional: Render existing products in #productList dynamically here
+  </script>
+</body>
+</html>

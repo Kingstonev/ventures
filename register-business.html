@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Your Business | Kingstone Ventures</title>
+    <link rel="stylesheet" href="register.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">Kingstone Ventures</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="register-business.html" class="active">Register Business</a></li>
+               
+                
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="hero">
+        <h1>Register Your Business in Ghana</h1>
+        <p>Welcome to our business registration portal. We make it simple and efficient for individuals and groups to legally register their businesses in Ghana. Below, you’ll find detailed descriptions of the three main business structures available for registration: Sole Proprietorship, Partnership, and Company. Select the option that best fits your goals and follow the steps to complete your registration.</p>
+    </section>
+
+    <!-- Business Types -->
+    <section class="services">
+        <h2>Types of Business Entities in Ghana</h2>
+        <div class="service-cards">
+            <div class="card">
+                <h3>1. Sole Proprietorship</h3>
+                <p>A Sole Proprietorship is the simplest form of business ownership, operated and owned by one individual. It is easy to set up, cost-effective, and ideal for small business owners or freelancers. This type of business has no legal separation between the owner and the business — all profits and liabilities belong to the individual.</p>
+                <ul>
+                    <li><strong>Best for:</strong> Freelancers, small shops, individual service providers</li>
+                    <li><strong>Advantages:</strong> Low startup costs, full control, simple tax filing</li>
+                    <li><strong>Responsibilities:</strong> Personal liability for business debts</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>2. Partnership</h3>
+                <p>A Partnership is a business owned by two or more individuals who share responsibilities, profits, and liabilities. Partnerships are often formed when multiple people come together to run a business with a shared vision.</p>
+                <ul>
+                    <li><strong>Best for:</strong> Legal firms, medical practices, family-run businesses</li>
+                    <li><strong>Advantages:</strong> Shared resources and responsibilities</li>
+                    <li><strong>Responsibilities:</strong> Shared liability; legal agreement is recommended</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>3. Company (Limited Liability)</h3>
+                <p>A Company is a legally distinct entity from its owners. It can own property, sue, and be sued in its own name. Owners (shareholders) are not personally liable for the company’s debts beyond their investment.</p>
+                <ul>
+                    <li><strong>Best for:</strong> Startups, large businesses, formal organizations</li>
+                    <li><strong>Advantages:</strong> Limited liability, credibility, access to investment</li>
+                    <li><strong>Responsibilities:</strong> Strict regulatory compliance, annual filings</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Form -->
+    <section class="form-section" style="display: none;">
+        <h2>Sole Proprietorship Registration Form</h2>
+        <p>Please complete the form below. Once submitted, the details will be sent to our WhatsApp number for quick processing.</p>
+
+        <form id="registrationForm">
+            <h3>Personal Details</h3>
+            <input type="text" name="fullName" placeholder="Full Name" required>
+            <input type="date" name="dob" placeholder="Date of Birth" required>
+            <input type="text" name="placeOfBirth" placeholder="Place of Birth" required>
+            <input type="text" name="motherName" placeholder="Mother’s Name" required>
+
+            <h3>Business Address</h3>
+            <input type="text" name="businessDigitalAddress" placeholder="Digital Address" required>
+            <input type="text" name="businessHouseNumber" placeholder="House Number" required>
+            <input type="text" name="businessStreet" placeholder="Street Name" required>
+            <input type="text" name="businessLocation" placeholder="Location" required>
+            <input type="text" name="businessDistrict" placeholder="District" required>
+            <input type="text" name="businessRegion" placeholder="Region" required>
+
+            <h3>Residential Address</h3>
+            <input type="text" name="residentialHouseNumber" placeholder="House Number" required>
+            <input type="text" name="landmark" placeholder="Landmark" required>
+            <input type="text" name="residentialStreet" placeholder="Street Name" required>
+            <input type="text" name="residentialLocation" placeholder="Location" required>
+            <input type="text" name="residentialDistrict" placeholder="District" required>
+            <input type="text" name="residentialRegion" placeholder="Region" required>
+            <input type="text" name="poBox" placeholder="P.O. Box (if any)">
+
+            <h3>Contact Information</h3>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="tel" name="phone" placeholder="Telephone Number" required>
+            <input type="tel" name="whatsapp" placeholder="WhatsApp Number" required>
+            <input type="text" name="digitalAddress" placeholder="Digital Address" required>
+
+            <h3>Business Information</h3>
+            <input type="text" name="businessName" placeholder="Name of the Business (Company Name)" required>
+            <textarea name="natureOfBusiness" placeholder="Nature/Activities of the Business" required></textarea>
+            <input type="text" name="tin" placeholder="Tax Identification Number (TIN)" required>
+            <label for="ghanaCard">Upload Ghana Card (Photocopy):</label>
+            <input type="file" name="ghanaCard" id="ghanaCard" accept="image/*,application/pdf" required>
+
+            <button type="submit" class="btn">Submit & Send via WhatsApp</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Kingstone Ventures | Business Registration Experts</p>
+    </footer>
+
+   <script>
+    // WhatsApp form submission handler
+    document.getElementById('registrationForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const formData = new FormData(this);
+
+        // Define clean field labels for WhatsApp message
+        const labels = {
+            fullName: "Full Name",
+            dob: "Date of Birth",
+            placeOfBirth: "Place of Birth",
+            motherName: "Mother’s Name",
+            businessDigitalAddress: "Business Digital Address",
+            businessHouseNumber: "Business House Number",
+            businessStreet: "Business Street",
+            businessLocation: "Business Location",
+            businessDistrict: "Business District",
+            businessRegion: "Business Region",
+            residentialHouseNumber: "Residential House Number",
+            landmark: "Landmark",
+            residentialStreet: "Residential Street",
+            residentialLocation: "Residential Location",
+            residentialDistrict: "Residential District",
+            residentialRegion: "Residential Region",
+            poBox: "P.O. Box",
+            email: "Email",
+            phone: "Telephone Number",
+            whatsapp: "WhatsApp Number",
+            digitalAddress: "Digital Address",
+            businessName: "Business Name",
+            natureOfBusiness: "Nature / Activities of the Business",
+            tin: "Tax Identification Number (TIN)"
+        };
+
+        // Start WhatsApp message body
+        let message = "*Sole Proprietorship Registration Request*%0A%0A";
+
+        for (let [key, value] of formData.entries()) {
+            if (key !== "ghanaCard") {
+                let label = labels[key] || key;
+                message += `${label}: ${value}%0A`;
+            }
+        }
+
+        // WhatsApp number (international format without +)
+        const whatsappNumber = "+233508640097"; // <-- Replace with actual number
+        const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+        // Open WhatsApp chat
+        window.open(whatsappURL, '_blank');
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Upload & Display</title>
+</head>
+<body>
+  <input type="file" id="fileInput" />
+  <button onclick="uploadImage()">Upload</button>
+  <div id="output"></div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js";
+
+    const firebaseConfig = {
+  apiKey: "AIzaSyAn_QB-tl2nUFkHXwdlEh7G_REUI5_rO6U",
+  authDomain: "gabbytrial-4a9a9.firebaseapp.com",
+  projectId: "gabbytrial-4a9a9",
+  storageBucket: "gabbytrial-4a9a9.appspot.com",
+  messagingSenderId: "507301585683",
+  appId: "1:507301585683:web:0fce82879396f8366db0e6"
+};
+
+    const app = initializeApp(firebaseConfig);
+    const storage = getStorage(app);
+
+    window.uploadImage = async function () {
+      const file = document.getElementById("fileInput").files[0];
+      if (!file) return alert("Select a file");
+
+      const storageRef = ref(storage, "images/" + file.name);
+      const snapshot = await uploadBytes(storageRef, file);
+      const url = await getDownloadURL(snapshot.ref);
+
+      const img = document.createElement("img");
+      img.src = url;
+      img.style.width = "200px";
+      document.getElementById("output").appendChild(img);
+    };
+  </script>
+</body>
+</html>
