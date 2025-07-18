@@ -233,15 +233,27 @@ footer {
 /* Responsive Layout Fixes */
 @media (max-width: 768px) {
     header {
-        flex-direction: column;
-        text-align: center;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
     }
 
     nav ul {
-        flex-direction: column;
-        margin-top: 10px;
-        align-items: center;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        white-space: nowrap;
+        gap: 16px;
+        padding: 0;
+        margin: 0;
     }
+
+    nav ul li {
+        margin: 0;
+    }
+}
+
 
     nav ul li {
         margin: 10px 0;
