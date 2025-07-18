@@ -233,28 +233,24 @@ footer {
 /* Responsive Layout Fixes */
 @media (max-width: 768px) {
     header {
-        flex-direction: column;
-        text-align: center;
+        flex-direction: row; /* keep it horizontal */
+        flex-wrap: wrap;
+        justify-content: space-between;
+        text-align: left;
     }
 
     nav ul {
-        flex-direction: column;
-        margin-top: 10px;
+        flex-direction: row; /* keep nav horizontal */
+        margin-top: 0;
         align-items: center;
+        justify-content: center;
     }
 
     nav ul li {
-        margin: 10px 0;
-    }
-
-    .hero h1 {
-        font-size: 36px;
-    }
-
-    .hero-btns {
-        grid-template-columns: 1fr;
+        margin: 10px 12px; /* optional: reduce spacing if needed */
     }
 }
+
 
 @media (max-width: 480px) {
     .hero h1 {

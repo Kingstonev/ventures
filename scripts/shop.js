@@ -19,7 +19,8 @@ getDocs(productRef).then(snapshot => {
         <p class="product-price">Price: GHS ${(p.price / 100).toFixed(2)}</p>
         <input type="number" placeholder="Quantity" class="quantity-input" id="qty_${id}">
         <div class="product-actions">
-          <button class="buy-btn" onclick="payWithPaystack('${p.name}', ${p.price})">Buy Now</button>
+          <button class="buy-btn" onclick="buyNow('${p.name}', ${p.price}, document.getElementById('qty_${id}').value, '${p.image}')">Buy Now</button>
+
           <button class="add-to-cart-btn" onclick="addToCart('${p.name}', ${p.price}, document.getElementById('qty_${id}').value, '${p.image}')">Add to Cart</button>
         </div>
       </div>

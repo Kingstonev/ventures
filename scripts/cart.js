@@ -89,3 +89,15 @@ document.getElementById("checkoutForm").addEventListener("submit", (e) => {
 
   window.open(url, "_blank");
 });
+
+
+window.buyNow = function(name, price, quantity, imageUrl) {
+  if (!quantity || quantity <= 0) {
+    quantity = 1;
+  }
+
+  // Clear cart and add only the selected product
+  cart = [];
+  addToCart(name, price, quantity, imageUrl);
+  document.getElementById("order-form").style.display = "block";
+};

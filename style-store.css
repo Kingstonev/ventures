@@ -178,3 +178,22 @@ button:hover,
     flex-direction: column;
   }
 }
+@media (max-width: 768px) {
+    header {
+        flex-direction: row; /* keep it horizontal */
+        flex-wrap: wrap;
+        justify-content: space-between;
+        text-align: left;
+    }
+
+    nav ul {
+        flex-direction: row; /* keep nav horizontal */
+        margin-top: 0;
+        align-items: center;
+        justify-content: center;
+    }
+
+    nav ul li {
+        margin: 10px 12px; /* optional: reduce spacing if needed */
+    }
+}
