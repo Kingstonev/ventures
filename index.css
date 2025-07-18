@@ -1,11 +1,15 @@
 /* Reset */
-* {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
     font-family: 'Poppins', sans-serif;
     color: #333;
     background-color: #fff;
@@ -20,6 +24,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 header .logo {
@@ -29,7 +34,9 @@ header .logo {
 
 nav ul {
     display: flex;
+    flex-wrap: wrap;
     list-style: none;
+    padding: 0;
 }
 
 nav ul li {
@@ -90,58 +97,47 @@ nav ul li a:hover {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
+    width: 100%;
 }
 
 .shop, .register {
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 100%;
+    width: 100%;
 }
 
 .shop div:first-child,
 .register div:first-child {
-    height: 380px; /* or any fixed height */
+    height: auto;
+    max-height: 380px;
     width: 100%;
     overflow: hidden;
 }
 
 .shop-image,
 .register-image {
-    height: 100%;
     width: 100%;
+    height: 100%;
     object-fit: cover;
     border-radius: 10px;
 }
 
 .shop > div:last-child,
 .register > div:last-child {
-    font-size: 25PX;
-    margin-top: 20px; /* Adjust as needed */
+    font-size: 1.2rem;
+    margin-top: 20px;
 }
-
-@media (max-width: 768px) {
-    .hero-btns {
-        grid-template-columns: 1fr;
-    }
-}
-
 
 .btn {
-   
-    
-    font-size: 1rem;
-    padding: 0.8em 1.5em;
-
-
     background: gold;
     color: black;
     padding: 12px 24px;
     text-decoration: none;
     border-radius: 30px;
-    
     margin-right: 10px;
     transition: background 0.3s;
+    font-size: 1rem;
 }
 
 .btn:hover {
@@ -152,11 +148,11 @@ nav ul li a:hover {
     border: 2px solid gold;
     padding: 10px 22px;
     border-radius: 30px;
-   
     background: transparent;
     color: gold;
     text-decoration: none;
     transition: background 0.3s, color 0.3s;
+    font-size: 1rem;
 }
 
 .btn-outline:hover {
@@ -174,27 +170,21 @@ section {
     background-color: #dda565;
 }
 
-.about-cards {
+.about-cards,
+.service-cards,
+.portfolio-cards {
     display: flex;
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
     margin-top: 20px;
 }
-
-.service-cards, .portfolio-cards {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-top: 20px;
-}
-
 
 .services, .portfolio {
     background: #003366;
     color: #f4f4f4;
 }
+
 .card {
     background: white;
     color: #000000;
@@ -240,7 +230,7 @@ footer {
     font-size: 14px;
 }
 
-/* Responsive */
+/* Responsive Layout Fixes */
 @media (max-width: 768px) {
     header {
         flex-direction: column;
@@ -250,6 +240,7 @@ footer {
     nav ul {
         flex-direction: column;
         margin-top: 10px;
+        align-items: center;
     }
 
     nav ul li {
@@ -259,37 +250,27 @@ footer {
     .hero h1 {
         font-size: 36px;
     }
-}
 
-
-
-
-@media (max-width: 768px) {
     .hero-btns {
         grid-template-columns: 1fr;
     }
 }
 
-
-@media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-    }
-}
-
-
-.shop div:first-child,
-.register div:first-child {
-    height: 380px;
-}
-
-
 @media (max-width: 480px) {
     .hero h1 {
         font-size: 28px;
     }
-    .btn, .btn-outline {
+
+    .btn,
+    .btn-outline {
         font-size: 0.9rem;
         padding: 10px 16px;
     }
+}
+
+/* Image Scaling */
+img, video {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
