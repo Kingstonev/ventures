@@ -19,7 +19,7 @@ html, body {
 /* Header */
 header {
     background: #003366;
-    color: white;
+    color: rgb(190, 22, 22);
     padding: 20px 40px;
     display: flex;
     justify-content: space-between;
