@@ -129,6 +129,11 @@ nav ul li a:hover {
 
 .btn {
    
+    
+    font-size: 1rem;
+    padding: 0.8em 1.5em;
+
+
     background: gold;
     color: black;
     padding: 12px 24px;
@@ -253,5 +258,38 @@ footer {
 
     .hero h1 {
         font-size: 36px;
+    }
+}
+
+
+
+
+@media (max-width: 768px) {
+    .hero-btns {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+    }
+}
+
+
+.shop div:first-child,
+.register div:first-child {
+    height: 380px;
+}
+
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 28px;
+    }
+    .btn, .btn-outline {
+        font-size: 0.9rem;
+        padding: 10px 16px;
     }
 }
